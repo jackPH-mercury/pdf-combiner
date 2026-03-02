@@ -3,7 +3,7 @@ import os
 from PyPDF2 import PdfMerger
 
 def main():
-
+    # (these notes correspond with the criteria for the pdf merger assignment, with each digit addressing it's respective requirement.)
     # 1 & 2. Read output file name from command line
     if len(sys.argv) < 2:
         print("Error: Merge file name not specified.")
@@ -18,13 +18,13 @@ def main():
     # 4. Retrieve files in current directory
     files = os.listdir(".")
 
-    # 5. Filter only .pdf files
+    # 5. Filter only .pdf files. Basically this just finds any and all .pdf files in your folder
     pdf_files = [f for f in files if f.lower().endswith(".pdf")]
 
-    # 6. Sort alphabetically
+    # 6. Sorts found files alphabetically
     pdf_files.sort()
 
-    # 7. Report files found
+    # 7. Reports the newly sorted files found
     print(f"PDF files found: {len(pdf_files)}")
     print("List:")
 
@@ -35,9 +35,9 @@ def main():
         print("No PDF files to merge.")
         sys.exit(0)
 
-    # 8. Prompt user to continue
+    # 8. Prompts the user to continue with merging .pdf files
     choice = input("Continue (y/n): ").strip().lower()
-
+    
     if choice != 'y':
         print("Operation cancelled.")
         sys.exit(0)
@@ -48,7 +48,7 @@ def main():
             continue
         merger.append(pdf)
 
-    # 10. Export merged file
+    # 10. Export merged file, this is where the merged file basically gets "minted" 
     merger.write(output_name)
     merger.close()
 
@@ -57,3 +57,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+":]"
